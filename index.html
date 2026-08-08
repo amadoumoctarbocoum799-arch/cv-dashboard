@@ -3,137 +3,418 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CV Dashboard | Amadou Moctar BOCOUM</title>
-  <link rel="stylesheet" href="style.css">
-  <!-- Chart.js pour les graphiques interactifs -->
+  <title>CV Dashboard · Amadou Moctar BOCOUM</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <!-- FontAwesome pour les icônes -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <div class="dashboard-container">
-    
-    <!-- SIDEBAR / PROFIL -->
+  <!-- SCAN LINE BACKGROUND -->
+  <div class="scan-bg" aria-hidden="true">
+    <div class="scan-line"></div>
+  </div>
+  <div class="grid-overlay" aria-hidden="true"></div>
+
+  <div class="layout">
+
+    <!-- ═══════════════ SIDEBAR ═══════════════ -->
     <aside class="sidebar">
-      <div class="profile-card">
-        <div class="avatar-holder">
-          <i class="fa-solid fa-user-astronaut"></i>
-        </div>
-        <h2>Amadou Moctar BOCOUM</h2>
-        <p class="subtitle">Élève-Ingénieur ENAC | SAT Major</p>
-        <div class="status-badge">
-          <span class="pulse"></span> Recherche PFE (Mars 2027)
-        </div>
-      </div>
 
-      <div class="contact-info">
-        <div class="info-item">
-          <i class="fa-solid fa-envelope"></i>
-          <span>amadou.bocoum@enac.fr</span>
-        </div>
-        <div class="info-item">
-          <i class="fa-solid fa-location-dot"></i>
-          <span>Toulouse, France</span>
-        </div>
-        <div class="info-item">
-          <i class="fa-brands fa-linkedin"></i>
-          <a href="#" target="_blank">LinkedIn Profile</a>
-        </div>
-      </div>
+      <div class="sidebar-inner">
 
-      <div class="filter-box">
-        <h3><i class="fa-solid fa-filter"></i> Filtrer les Projets</h3>
-        <button class="filter-btn active" onclick="filterProjects('all')">Tous</button>
-        <button class="filter-btn" onclick="filterProjects('gnss')">GNSS & Signal</button>
-        <button class="filter-btn" onclick="filterProjects('rf')">RF & Propagation</button>
-        <button class="filter-btn" onclick="filterProjects('ia')">IA & Data</button>
-      </div>
+        <!-- Logo / Marque -->
+        <div class="brand">
+          <span class="brand-dot"></span>
+          <span class="brand-text">CV · Dashboard</span>
+        </div>
+
+        <!-- Profil -->
+        <div class="profile">
+          <div class="avatar-ring">
+            <div class="avatar">
+              <i class="fa-solid fa-satellite-dish"></i>
+            </div>
+          </div>
+          <h1 class="profile-name">Amadou Moctar<br><strong>BOCOUM</strong></h1>
+          <p class="profile-title">Élève-Ingénieur · Télécoms Spatiales<br>Traitement du Signal & IA</p>
+          <div class="status-pill">
+            <span class="status-dot"></span>
+            PFE disponible · Mars 2027
+          </div>
+        </div>
+
+        <!-- Contact -->
+        <div class="contact-block">
+          <a href="mailto:amadou.bocoum@enac.fr" class="contact-item">
+            <i class="fa-solid fa-envelope"></i>
+            <span>amadou.bocoum@enac.fr</span>
+          </a>
+          <a href="tel:+33739978469" class="contact-item">
+            <i class="fa-solid fa-phone"></i>
+            <span>+33 7 39 97 84 69</span>
+          </a>
+          <div class="contact-item">
+            <i class="fa-solid fa-location-dot"></i>
+            <span>Toulouse, France</span>
+          </div>
+          <a href="#" target="_blank" class="contact-item">
+            <i class="fa-brands fa-linkedin"></i>
+            <span>LinkedIn</span>
+          </a>
+          <a href="#" target="_blank" class="contact-item">
+            <i class="fa-brands fa-github"></i>
+            <span>GitHub</span>
+          </a>
+        </div>
+
+        <!-- Formation -->
+        <div class="sidebar-section">
+          <div class="section-label">Formation</div>
+          <div class="edu-item">
+            <span class="edu-school">ENAC – Toulouse</span>
+            <span class="edu-period">2025 – 2027</span>
+            <span class="edu-degree">Cycle Ingénieur · Majeure SAT</span>
+          </div>
+          <div class="edu-item">
+            <span class="edu-school">EPT – Thiès, Sénégal</span>
+            <span class="edu-period">2021 – 2025</span>
+            <span class="edu-degree">Ingénieur · Génie Aéronautique</span>
+          </div>
+        </div>
+
+        <!-- Langues -->
+        <div class="sidebar-section">
+          <div class="section-label">Langues</div>
+          <div class="lang-grid">
+            <div class="lang-item">
+              <span class="lang-name">Français</span>
+              <div class="lang-bar"><div class="lang-fill" style="width:100%"></div></div>
+            </div>
+            <div class="lang-item">
+              <span class="lang-name">Anglais B2</span>
+              <div class="lang-bar"><div class="lang-fill" style="width:70%"></div></div>
+            </div>
+            <div class="lang-item">
+              <span class="lang-name">Espagnol B1</span>
+              <div class="lang-bar"><div class="lang-fill" style="width:45%"></div></div>
+            </div>
+            <div class="lang-item">
+              <span class="lang-name">Pulaar / Wolof</span>
+              <div class="lang-bar"><div class="lang-fill" style="width:100%"></div></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Filtres -->
+        <div class="sidebar-section">
+          <div class="section-label">Filtrer les projets</div>
+          <div class="filter-group">
+            <button class="filter-btn active" data-filter="all">
+              <i class="fa-solid fa-border-all"></i> Tous
+            </button>
+            <button class="filter-btn" data-filter="gnss">
+              <i class="fa-solid fa-satellite"></i> GNSS & Signal
+            </button>
+            <button class="filter-btn" data-filter="rf">
+              <i class="fa-solid fa-tower-broadcast"></i> RF & Propagation
+            </button>
+            <button class="filter-btn" data-filter="ia">
+              <i class="fa-solid fa-brain"></i> IA & Data
+            </button>
+            <button class="filter-btn" data-filter="avio">
+              <i class="fa-solid fa-plane"></i> Avionique
+            </button>
+          </div>
+        </div>
+
+        <!-- CV Download -->
+        <a href="#" class="cv-download-btn" download>
+          <i class="fa-solid fa-arrow-down-to-line"></i>
+          Télécharger le CV PDF
+        </a>
+
+      </div><!-- /sidebar-inner -->
     </aside>
 
-    <!-- MAIN CONTENT AREA -->
-    <main class="main-content">
-      
-      <!-- KPI CARDS HEADER -->
-      <section class="kpi-grid">
+    <!-- ═══════════════ MAIN ═══════════════ -->
+    <main class="main">
+
+      <!-- ── HEADER KPIs ── -->
+      <section class="kpi-row">
         <div class="kpi-card">
-          <div class="kpi-icon"><i class="fa-solid fa-graduation-cap"></i></div>
-          <div class="kpi-data">
-            <span class="kpi-value">ENAC / EPT</span>
-            <span class="kpi-label">Double Cursus Ingénieur</span>
+          <div class="kpi-icon cyan"><i class="fa-solid fa-graduation-cap"></i></div>
+          <div>
+            <div class="kpi-value">Double Diplôme</div>
+            <div class="kpi-sub">ENAC · EPT Thiès</div>
           </div>
         </div>
-
         <div class="kpi-card">
-          <div class="kpi-icon"><i class="fa-solid fa-satellite"></i></div>
-          <div class="kpi-data">
-            <span class="kpi-value">Spécialité</span>
-            <span class="kpi-label">Spatial & Aeronautic Telecoms</span>
+          <div class="kpi-icon violet"><i class="fa-solid fa-satellite"></i></div>
+          <div>
+            <div class="kpi-value">Majeure SAT</div>
+            <div class="kpi-sub">Spatial & Aeronautic Telecoms</div>
           </div>
         </div>
-
         <div class="kpi-card">
-          <div class="kpi-icon"><i class="fa-solid fa-code"></i></div>
-          <div class="kpi-data">
-            <span class="kpi-value">Python / MATLAB</span>
-            <span class="kpi-label">LTspice / HFSS / LaTeX</span>
+          <div class="kpi-icon teal"><i class="fa-solid fa-microchip"></i></div>
+          <div>
+            <div class="kpi-value">5 Projets R&D</div>
+            <div class="kpi-sub">Signal · IA · Avionique</div>
+          </div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-icon amber"><i class="fa-solid fa-code-branch"></i></div>
+          <div>
+            <div class="kpi-value">Python · MATLAB</div>
+            <div class="kpi-sub">PyTorch · HFSS · LTspice</div>
           </div>
         </div>
       </section>
 
-      <!-- CHARTS SECTION -->
-      <div class="chart-card">
-        <h3><i class="fa-solid fa-chart-radar"></i> Compétences Techniques</h3>
-        <div class="chart-container">
-          <canvas id="skillsRadar"></canvas>
+      <!-- ── COMPÉTENCES TECHNIQUES (barres horizontales) ── -->
+      <section class="card skills-card">
+        <div class="card-header">
+          <span class="card-title"><i class="fa-solid fa-chart-bar"></i> Compétences Techniques</span>
+          <span class="card-badge">Niveaux estimés</span>
         </div>
+        <div class="skills-grid">
+          <div class="skill-row">
+            <span class="skill-name">Signal & GNSS</span>
+            <div class="skill-track"><div class="skill-bar" style="--w:90%" data-val="90"></div></div>
+            <span class="skill-pct">90%</span>
+          </div>
+          <div class="skill-row">
+            <span class="skill-name">Python / MATLAB</span>
+            <div class="skill-track"><div class="skill-bar" style="--w:95%" data-val="95"></div></div>
+            <span class="skill-pct">95%</span>
+          </div>
+          <div class="skill-row">
+            <span class="skill-name">5G NTN / Propagation</span>
+            <div class="skill-track"><div class="skill-bar" style="--w:85%" data-val="85"></div></div>
+            <span class="skill-pct">85%</span>
+          </div>
+          <div class="skill-row">
+            <span class="skill-name">IA (LSTM · Transformers)</span>
+            <div class="skill-track"><div class="skill-bar" style="--w:80%" data-val="80"></div></div>
+            <span class="skill-pct">80%</span>
+          </div>
+          <div class="skill-row">
+            <span class="skill-name">RF & Antennes · HFSS</span>
+            <div class="skill-track"><div class="skill-bar" style="--w:85%" data-val="85"></div></div>
+            <span class="skill-pct">85%</span>
+          </div>
+          <div class="skill-row">
+            <span class="skill-name">Avionique & Systèmes</span>
+            <div class="skill-track"><div class="skill-bar" style="--w:78%" data-val="78"></div></div>
+            <span class="skill-pct">78%</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── GRAPHIQUES ── -->
+      <div class="charts-row">
+
+        <div class="card chart-card">
+          <div class="card-header">
+            <span class="card-title"><i class="fa-solid fa-chart-radar"></i> Radar des Compétences</span>
+          </div>
+          <div class="chart-wrap">
+            <canvas id="radarChart"></canvas>
+          </div>
+        </div>
+
+        <div class="card chart-card">
+          <div class="card-header">
+            <span class="card-title"><i class="fa-solid fa-circle-nodes"></i> Stack Outils</span>
+          </div>
+          <div class="chart-wrap">
+            <canvas id="donutChart"></canvas>
+          </div>
+        </div>
+
       </div>
 
-      <div class="chart-card">
-        <h3><i class="fa-solid fa-layer-group"></i> Répartition des Outils</h3>
-        <div class="chart-container">
-          <canvas id="toolsDoughnut"></canvas>
+      <!-- ── EXPÉRIENCES MILITAIRES ── -->
+      <section class="card">
+        <div class="card-header">
+          <span class="card-title"><i class="fa-solid fa-star"></i> Expériences Professionnelles</span>
         </div>
-      </div>
+        <div class="timeline">
 
-      <!-- PROJECTS & EXPERIENCES DYNAMIC GRID -->
+          <div class="tl-item">
+            <div class="tl-dot cyan"></div>
+            <div class="tl-content">
+              <div class="tl-header">
+                <span class="tl-title">Stage · Systèmes Avioniques</span>
+                <span class="tl-period">Août – Oct 2024</span>
+              </div>
+              <span class="tl-org">Base Militaire de Thiès – Sénégal</span>
+              <ul class="tl-list">
+                <li>Utilisation d'instruments de navigation/communication (TB-30)</li>
+                <li>Planification de visites périodiques 500h (DA-40, TB-30)</li>
+                <li>Développement d'un outil Excel de suivi de maintenance</li>
+              </ul>
+              <div class="tl-tags"><span>Avionique</span><span>TB-30</span><span>Maintenance</span></div>
+            </div>
+          </div>
+
+          <div class="tl-item">
+            <div class="tl-dot violet"></div>
+            <div class="tl-content">
+              <div class="tl-header">
+                <span class="tl-title">Stage · Opérations Aéronautiques</span>
+                <span class="tl-period">Août – Oct 2023</span>
+              </div>
+              <span class="tl-org">Base Militaire de Thiès – Sénégal</span>
+              <ul class="tl-list">
+                <li>Vérifications pré- et post-vol des systèmes aéronefs</li>
+                <li>Élaboration d'une cartographie des risques opérationnels</li>
+                <li>Application des procédures d'avitaillement</li>
+              </ul>
+              <div class="tl-tags"><span>Opérations</span><span>Sécurité</span><span>Avitaillement</span></div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ── PROJETS R&D ── -->
       <section class="projects-section">
-        <h3><i class="fa-solid fa-diagram-project"></i> Projets & Expériences R&D</h3>
-        
-        <div class="projects-grid">
-          
-          <div class="project-card" data-category="ia rf">
-            <div class="card-tag">Stage Recherche</div>
-            <h4>Analyse & Prédiction de Canaux Radio (IA)</h4>
-            <span class="institution">CEA-LETI / Grenoble</span>
-            <p>Modélisation de canaux de propagation MIMO via réseaux de neurones (LSTM, Transformers) pour anticiper les variations en mobilité.</p>
-            <div class="tags">
-              <span>PyTorch</span><span>MIMO</span><span>Propagation</span>
+        <div class="card-header projects-header">
+          <span class="card-title"><i class="fa-solid fa-diagram-project"></i> Projets & R&D</span>
+          <span class="projects-count" id="projectCount">5 projets</span>
+        </div>
+        <div class="projects-grid" id="projectsGrid">
+
+          <div class="project-card" data-cat="ia rf">
+            <div class="project-glow"></div>
+            <div class="project-top">
+              <span class="project-tag tag-ia">IA · RF</span>
+              <span class="project-year">CEA-LETI</span>
+            </div>
+            <h3 class="project-title">Prédiction de Canaux Radio par IA</h3>
+            <p class="project-desc">Modélisation de canaux de propagation MIMO via réseaux de neurones (LSTM, GRU, Transformers, TCN) pour anticiper les variations en mobilité. Collecte et pré-traitement de données mesurées.</p>
+            <div class="project-stack">
+              <span>PyTorch</span><span>LSTM</span><span>MIMO</span><span>Propagation</span>
+            </div>
+            <div class="project-footer">
+              <span class="project-loc"><i class="fa-solid fa-map-pin"></i> Grenoble – LAPCI</span>
+              <span class="project-type">Stage R&D</span>
             </div>
           </div>
 
-          <div class="project-card" data-category="gnss ia">
-            <div class="card-tag">Projet Académique</div>
-            <h4>Simulateur 5G NTN & Signal GNSS</h4>
-            <span class="institution">ENAC / Toulouse</span>
-            <p>Génération et synchronisation de signaux télécoms non-terrestres (NTN LEO) et traitement de données de radionavigation.</p>
-            <div class="tags">
-              <span>MATLAB</span><span>GNSS</span><span>5G NTN</span>
+          <div class="project-card" data-cat="gnss ia">
+            <div class="project-glow"></div>
+            <div class="project-top">
+              <span class="project-tag tag-gnss">GNSS · 5G</span>
+              <span class="project-year">ENAC</span>
+            </div>
+            <h3 class="project-title">Simulateur 5G NTN & Navigation GNSS</h3>
+            <p class="project-desc">Génération et synchronisation de signaux télécoms non-terrestres (NTN LEO) sous MATLAB, analyse des effets Doppler et traitement de données de radionavigation pour constellations LEO.</p>
+            <div class="project-stack">
+              <span>MATLAB</span><span>5G NTN</span><span>LEO</span><span>GNSS</span>
+            </div>
+            <div class="project-footer">
+              <span class="project-loc"><i class="fa-solid fa-map-pin"></i> Toulouse</span>
+              <span class="project-type">Projet S8</span>
             </div>
           </div>
 
-          <div class="project-card" data-category="rf">
-            <div class="card-tag">Projet Technique</div>
-            <h4>Conception & Simulation RF</h4>
-            <span class="institution">ENAC</span>
-            <p>Simulations électromagnétiques de guides d'ondes et antennes, validation de circuits imprimés HF sous HFSS et LTspice.</p>
-            <div class="tags">
-              <span>HFSS</span><span>LTspice</span><span>RF</span>
+          <div class="project-card" data-cat="rf gnss">
+            <div class="project-glow"></div>
+            <div class="project-top">
+              <span class="project-tag tag-rf">RF · Satellite</span>
+              <span class="project-year">CNES / GAUSS</span>
+            </div>
+            <h3 class="project-title">Caractérisation Canaux Satellite & Multitrajets</h3>
+            <p class="project-desc">Modélisation et caractérisation de canaux de propagation en environnement satellite, analyse des effets multitrajets et leur impact sur les systèmes de navigation.</p>
+            <div class="project-stack">
+              <span>MATLAB</span><span>Multitrajets</span><span>Satellite</span><span>GNSS</span>
+            </div>
+            <div class="project-footer">
+              <span class="project-loc"><i class="fa-solid fa-map-pin"></i> Toulouse</span>
+              <span class="project-type">Projet CNES</span>
+            </div>
+          </div>
+
+          <div class="project-card" data-cat="rf">
+            <div class="project-glow"></div>
+            <div class="project-top">
+              <span class="project-tag tag-rf">RF · EM</span>
+              <span class="project-year">ENAC</span>
+            </div>
+            <h3 class="project-title">Conception & Simulation RF — Antennes & Guides</h3>
+            <p class="project-desc">Simulations électromagnétiques de guides d'ondes et d'antennes, validation de circuits imprimés HF. Analyse de propagation en espace libre et en milieu guidé.</p>
+            <div class="project-stack">
+              <span>HFSS</span><span>LTspice</span><span>RF</span><span>Antennes</span>
+            </div>
+            <div class="project-footer">
+              <span class="project-loc"><i class="fa-solid fa-map-pin"></i> ENAC Toulouse</span>
+              <span class="project-type">Projet Technique</span>
+            </div>
+          </div>
+
+          <div class="project-card" data-cat="avio">
+            <div class="project-glow"></div>
+            <div class="project-top">
+              <span class="project-tag tag-avio">Avionique · Ops</span>
+              <span class="project-year">EPT</span>
+            </div>
+            <h3 class="project-title">Évaluation Technico-Économique Lyon–Miami</h3>
+            <p class="project-desc">Évaluation technico-économique, réglementaire et aérodynamique d'une ligne long-courrier Lyon–Miami sur Airbus A330-941. Analyse de rentabilité, conformité réglementaire et performances vol.</p>
+            <div class="project-stack">
+              <span>A330-941</span><span>Économique</span><span>Performance</span><span>Réglementation</span>
+            </div>
+            <div class="project-footer">
+              <span class="project-loc"><i class="fa-solid fa-map-pin"></i> EPT Thiès</span>
+              <span class="project-type">Projet Synthèse</span>
             </div>
           </div>
 
         </div>
       </section>
+
+      <!-- ── CERTIFICATIONS & SOFT SKILLS ── -->
+      <div class="bottom-row">
+
+        <div class="card cert-card">
+          <div class="card-header">
+            <span class="card-title"><i class="fa-solid fa-certificate"></i> Certifications</span>
+          </div>
+          <div class="cert-list">
+            <div class="cert-item">
+              <div class="cert-icon"><i class="fa-solid fa-network-wired"></i></div>
+              <div>
+                <div class="cert-name">Networking Essentials</div>
+                <div class="cert-org">École Polytechnique de Thiès · Août 2024</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card soft-card">
+          <div class="card-header">
+            <span class="card-title"><i class="fa-solid fa-user-gear"></i> Atouts Clés</span>
+          </div>
+          <div class="soft-grid">
+            <div class="soft-item"><i class="fa-solid fa-lightbulb"></i> Autonomie</div>
+            <div class="soft-item"><i class="fa-solid fa-users"></i> Travail d'équipe</div>
+            <div class="soft-item"><i class="fa-solid fa-repeat"></i> Amélioration continue</div>
+            <div class="soft-item"><i class="fa-solid fa-comments"></i> Communication</div>
+            <div class="soft-item"><i class="fa-solid fa-magnifying-glass"></i> Rigueur R&D</div>
+            <div class="soft-item"><i class="fa-solid fa-rocket"></i> Innovation</div>
+          </div>
+        </div>
+
+      </div>
+
+      <footer class="dash-footer">
+        <span>Amadou Moctar BOCOUM · ENAC Toulouse · 2025</span>
+        <span>Ouverture vers thèse de doctorat · <a href="mailto:amadou.bocoum@enac.fr">amadou.bocoum@enac.fr</a></span>
+      </footer>
 
     </main>
   </div>
