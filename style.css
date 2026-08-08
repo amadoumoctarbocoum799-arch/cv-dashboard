@@ -643,3 +643,38 @@ body {
     transform: rotate(360deg);
   }
 }
+/* --- Style Carte Résumé / Objectif --- */
+.summary-card {
+  margin-bottom: 1.5rem;
+  border-left: 3px solid #00f2fe;
+}
+
+.summary-text {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #a0aec0;
+}
+
+.summary-text strong {
+  color: #ffffff;
+  font-weight: 600;
+}
+
+/* Badge animé "Disponible" */
+.card-badge.pulse {
+  background: rgba(0, 242, 254, 0.1);
+  color: #00f2fe;
+  border: 1px solid rgba(0, 242, 254, 0.3);
+  position: relative;
+}
+
+.card-badge.pulse::before {
+  content: '';
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  background-color: #00f2fe;
+  border-radius: 50%;
+  margin-right: 6px;
+  box-shadow: 0 0 8px #00f2fe;
+}
