@@ -3,36 +3,25 @@
    Design "Deep Space Telemetry"
    ═══════════════════════════════════════════════════════════ */
 
-/* ─── TOKENS ─────────────────────────────────────────────── */
+/* =========================================================
+   PALETTE DE COULEURS ÉLÉGANTE ET MODERNE (SPACE / TECH)
+   ========================================================= */
 :root {
-  --void:      #080d1a;
-  --deep:      #0c1220;
-  --card:      #101827;
-  --card-2:    #131f30;
-  --border:    rgba(56, 189, 248, 0.12);
-  --border-2:  rgba(255,255,255,0.06);
+  /* Fonds généraux */
+  --bg-dark: #0b0f19;          /* Noir/Bleu nuit très profond */
+  --card-bg: rgba(18, 26, 43, 0.75); /* Effet verre / Glassmorphism */
+  --card-border: rgba(0, 242, 254, 0.15);
 
-  --cyan:      #38bdf8;
-  --cyan-dim:  rgba(56,189,248,0.15);
-  --cyan-glow: rgba(56,189,248,0.35);
-  --violet:    #a78bfa;
-  --violet-dim:rgba(167,139,250,0.15);
-  --teal:      #06b6d4;
-  --teal-dim:  rgba(6,182,212,0.15);
-  --amber:     #fbbf24;
-  --amber-dim: rgba(251,191,36,0.15);
-  --green:     #34d399;
+  /* Couleurs d'accentuation principales */
+  --accent-cyan: #00f2fe;      /* Vibrant Cyan (GNSS / Signal / Primaire) */
+  --accent-purple: #9d4edd;    /* Violet Spatiale & IA */
+  --accent-teal: #00e5ff;      /* Teal lumineux */
+  --accent-blue: #3a86ff;      /* Bleu dynamique */
 
-  --text:      #e2e8f0;
-  --muted:     #64748b;
-  --subtle:    #334155;
-
-  --font-disp: 'Space Grotesk', sans-serif;
-  --font-body: 'Inter', sans-serif;
-
-  --sidebar-w: 290px;
-  --radius:    12px;
-  --radius-lg: 18px;
+  /* Textes */
+  --text-main: #f1f5f9;        /* Blanc cassé très lisible */
+  --text-muted: #94a3b8;       /* Gris métallisé doux pour les détails */
+  --text-dim: #64748b;         /* Gris foncé pour les sous-titres */
 }
 
 /* ─── RESET ──────────────────────────────────────────────── */
