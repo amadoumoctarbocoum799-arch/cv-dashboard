@@ -566,15 +566,18 @@ ul { list-style: none; }
   .skill-bar { transition: none; }
 }
 
-/* --- Style pour les détails de formation dans la Sidebar --- */
+/* --- Style forcé pour les puces de la formation --- */
 .edu-details {
-  margin-top: 6px;
-  padding-left: 14px;
-  font-size: 0.78rem;
-  color: var(--text-muted, #a0aec0);
-  line-height: 1.4;
+  margin-top: 6px !important;
+  padding-left: 18px !important;
+  list-style-type: disc !important; /* Force l'affichage des puces ronde */
+  display: block !important;
 }
 
 .edu-details li {
-  margin-bottom: 3px;
+  display: list-item !important; /* Réactive l'affichage sous forme de liste */
+  font-size: 0.78rem;
+  color: #a0aec0;
+  line-height: 1.4;
+  margin-bottom: 4px;
 }
