@@ -4,19 +4,6 @@
    ═══════════════════════════════════════════════════════════ */
 
 /* ─── TOKENS ─────────────────────────────────────────────── */
-
-.edu-details {
-  margin-top: 6px;
-  padding-left: 14px;
-  font-size: 0.78rem;
-  color: var(--text-muted, #a0aec0);
-  line-height: 1.4;
-}
-
-.edu-details li {
-  margin-bottom: 3px;
-}
-
 :root {
   --void:      #080d1a;
   --deep:      #0c1220;
@@ -577,4 +564,17 @@ ul { list-style: none; }
 @media (prefers-reduced-motion: reduce) {
   .scan-line, .avatar-ring, .brand-dot, .status-dot { animation: none; }
   .skill-bar { transition: none; }
+}
+
+/* --- Style pour les détails de formation dans la Sidebar --- */
+.edu-details {
+  margin-top: 6px;
+  padding-left: 14px;
+  font-size: 0.78rem;
+  color: var(--text-muted, #a0aec0);
+  line-height: 1.4;
+}
+
+.edu-details li {
+  margin-bottom: 3px;
 }
