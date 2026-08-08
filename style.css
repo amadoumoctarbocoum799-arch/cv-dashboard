@@ -578,3 +578,22 @@ body {
     width: 100%;
   }
 }
+
+/* --- Correction de l'affichage des tags dans la timeline --- */
+.tl-tags {
+  display: flex !important;
+  flex-wrap: wrap !important; /* Permet d'aller à la ligne si le texte est long */
+  gap: 8px !important;        /* Espace entre les cases */
+  margin-top: 12px !important;
+}
+
+.tl-tags span {
+  display: inline-block !important;
+  font-size: 0.72rem !important;
+  background: rgba(0, 242, 254, 0.1) !important;
+  color: #00f2fe !important;
+  border: 1px solid rgba(0, 242, 254, 0.25) !important;
+  padding: 3px 10px !important;
+  border-radius: 6px !important;
+  white-space: nowrap !important; /* Empêche le texte d'une case de se couper */
+}
