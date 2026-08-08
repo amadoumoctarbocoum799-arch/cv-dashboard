@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CV Dashboard | Amadou Moctar BOCOUM</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- Chart.js pour les graphiques interactifs -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <!-- FontAwesome pour les icônes -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+  <div class="dashboard-container">
+    
+    <!-- SIDEBAR / PROFIL -->
+    <aside class="sidebar">
+      <div class="profile-card">
+        <div class="avatar-holder">
+          <i class="fa-solid fa-user-astronaut"></i>
+        </div>
+        <h2>Amadou Moctar BOCOUM</h2>
+        <p class="subtitle">Élève-Ingénieur ENAC | SAT Major</p>
+        <div class="status-badge">
+          <span class="pulse"></span> Recherche PFE (Mars 2027)
+        </div>
+      </div>
+
+      <div class="contact-info">
+        <div class="info-item">
+          <i class="fa-solid fa-envelope"></i>
+          <span>amadou.bocoum@enac.fr</span>
+        </div>
+        <div class="info-item">
+          <i class="fa-solid fa-location-dot"></i>
+          <span>Toulouse, France</span>
+        </div>
+        <div class="info-item">
+          <i class="fa-brands fa-linkedin"></i>
+          <a href="#" target="_blank">LinkedIn Profile</a>
+        </div>
+      </div>
+
+      <div class="filter-box">
+        <h3><i class="fa-solid fa-filter"></i> Filtrer les Projets</h3>
+        <button class="filter-btn active" onclick="filterProjects('all')">Tous</button>
+        <button class="filter-btn" onclick="filterProjects('gnss')">GNSS & Signal</button>
+        <button class="filter-btn" onclick="filterProjects('rf')">RF & Propagation</button>
+        <button class="filter-btn" onclick="filterProjects('ia')">IA & Data</button>
+      </div>
+    </aside>
+
+    <!-- MAIN CONTENT AREA -->
+    <main class="main-content">
+      
+      <!-- KPI CARDS HEADER -->
+      <section class="kpi-grid">
+        <div class="kpi-card">
+          <div class="kpi-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+          <div class="kpi-data">
+            <span class="kpi-value">ENAC / EPT</span>
+            <span class="kpi-label">Double Cursus Ingénieur</span>
+          </div>
+        </div>
+
+        <div class="kpi-card">
+          <div class="kpi-icon"><i class="fa-solid fa-satellite"></i></div>
+          <div class="kpi-data">
+            <span class="kpi-value">Spécialité</span>
+            <span class="kpi-label">Spatial & Aeronautic Telecoms</span>
+          </div>
+        </div>
+
+        <div class="kpi-card">
+          <div class="kpi-icon"><i class="fa-solid fa-code"></i></div>
+          <div class="kpi-data">
+            <span class="kpi-value">Python / MATLAB</span>
+            <span class="kpi-label">LTspice / HFSS / LaTeX</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- CHARTS SECTION -->
+      <div class="chart-card">
+        <h3><i class="fa-solid fa-chart-radar"></i> Compétences Techniques</h3>
+        <div class="chart-container">
+          <canvas id="skillsRadar"></canvas>
+        </div>
+      </div>
+
+      <div class="chart-card">
+        <h3><i class="fa-solid fa-layer-group"></i> Répartition des Outils</h3>
+        <div class="chart-container">
+          <canvas id="toolsDoughnut"></canvas>
+        </div>
+      </div>
+
+      <!-- PROJECTS & EXPERIENCES DYNAMIC GRID -->
+      <section class="projects-section">
+        <h3><i class="fa-solid fa-diagram-project"></i> Projets & Expériences R&D</h3>
+        
+        <div class="projects-grid">
+          
+          <div class="project-card" data-category="ia rf">
+            <div class="card-tag">Stage Recherche</div>
+            <h4>Analyse & Prédiction de Canaux Radio (IA)</h4>
+            <span class="institution">CEA-LETI / Grenoble</span>
+            <p>Modélisation de canaux de propagation MIMO via réseaux de neurones (LSTM, Transformers) pour anticiper les variations en mobilité.</p>
+            <div class="tags">
+              <span>PyTorch</span><span>MIMO</span><span>Propagation</span>
+            </div>
+          </div>
+
+          <div class="project-card" data-category="gnss ia">
+            <div class="card-tag">Projet Académique</div>
+            <h4>Simulateur 5G NTN & Signal GNSS</h4>
+            <span class="institution">ENAC / Toulouse</span>
+            <p>Génération et synchronisation de signaux télécoms non-terrestres (NTN LEO) et traitement de données de radionavigation.</p>
+            <div class="tags">
+              <span>MATLAB</span><span>GNSS</span><span>5G NTN</span>
+            </div>
+          </div>
+
+          <div class="project-card" data-category="rf">
+            <div class="card-tag">Projet Technique</div>
+            <h4>Conception & Simulation RF</h4>
+            <span class="institution">ENAC</span>
+            <p>Simulations électromagnétiques de guides d'ondes et antennes, validation de circuits imprimés HF sous HFSS et LTspice.</p>
+            <div class="tags">
+              <span>HFSS</span><span>LTspice</span><span>RF</span>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
